@@ -20,7 +20,7 @@
       <h2>${filename}</h2>
       <h3>${questions.length} ${pluralize(questions.length, "question")}</h3>
 
-      <div class="questions hide">
+      <div class="questions">
         {{each questions}}
           {{tmpl($value) "#questionTemplate"}}
         {{/each}}

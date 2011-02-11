@@ -20,10 +20,6 @@ controller.get_quizzes = function(filename) {
 $(function() {
   controller.get_quizzes();
 
-  $('#quizzes').delegate('.quiz', 'click', function(e) {
-    $(this).find('.questions.hide').removeClass('hide');
-  });
-
   $('#quizzes').delegate('.question a', 'click', function(e) {
     e.preventDefault();
 
