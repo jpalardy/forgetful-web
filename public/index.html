@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>forgetful.web</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <div id="header">
+    <div class="container">
+      <h1>forgetful.web</h1>
+    </div>
+  </div>
+
+  <div id="quizzes" class="container">
+  </div>
+
+  <script id="quizTemplate" type="text/x-jquery-tmpl">
+    <div class="quiz">
+      <h2>${filename}</h2>
+      <h3>${questions.length} ${pluralize(questions.length, "question")}</h3>
+
+      <div class="questions hide">
+        {{each questions}}
+          {{tmpl($value) "#questionTemplate"}}
+        {{/each}}
+
+        <button class="save">save</button>
+      </div>
+    </div>
+  </script>
+
+  <script id="questionTemplate" type="text/x-jquery-tmpl">
+    <div class="question" data-id="${id}">
+      <table>
+        <tr>
+          <td> Q: </td>
+          <td class="full"> ${question} </td>
+        </tr>
+        <tr>
+          <td> A: </td>
+          <td class="hidden"> ${answer} </td>
+        </tr>
+        <tr>
+          <td> &nbsp; </td>
+          <td class="hidden">
+            <a href="#">0</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </script>
+
+  <script src="js/jquery-1.5.min.js"></script>
+  <script src="js/jquery.tmpl.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

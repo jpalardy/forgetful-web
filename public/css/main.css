@@ -1,0 +1,110 @@
+
+html, body {
+  margin:  0;
+}
+
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 80%;
+  color: #555;
+}
+
+.hide {
+  display: none;
+}
+
+/*-------------------------------------------------*/
+
+#header {
+  background: #333;
+  height: 75px;
+  line-height: 75px;
+}
+
+#header h1 {
+  font-family: Georgia, Times New Roman, Times, serif;
+  font-size: 250%;
+  margin: 0;
+}
+
+.container {
+  width: 960px;
+  margin: auto;
+}
+
+/*-------------------------------------------------*/
+
+.quiz h2 {
+  margin: 0;
+  margin-top: 50px;
+  color: #777;
+  cursor: pointer;
+}
+
+.quiz h3 {
+  color: #bbb;
+  margin: 0;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/*-------------------------------------------------*/
+
+.questions {
+  width: 500px;
+}
+
+.question {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius:    10px;
+  background: #ECF1EF;
+  margin-bottom: 20px;
+  padding: 5px;
+  -webkit-box-shadow: 0px 0px 27px #bbb;
+  -moz-box-shadow:    0px 0px 27px #bbb;
+}
+
+.question.answered {
+  opacity: 0.3;
+}
+
+.question.selected {
+  background: #FCF6CF;
+}
+
+.question table {
+  border-collapse: collapse;
+}
+
+.question table td {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.question table td.full {
+  width: 100%;
+}
+
+.question table td.hidden {
+  visibility: hidden;
+}
+
+.question.selected table td.hidden {
+  visibility: visible;
+}
+
+.question a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.question a:hover {
+  color: orange;
+}
+
+.question a.selected {
+  color: red;
+}
+

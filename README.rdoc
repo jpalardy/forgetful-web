@@ -1,0 +1,8 @@
+= forgetful-web
+
+A sinatra front-end for the forgetful gem.
+
+== Copyright
+
+Copyright (c) 2011 Jonathan Palardy. See LICENSE.txt for further details.
+
