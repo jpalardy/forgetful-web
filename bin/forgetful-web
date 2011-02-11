@@ -9,6 +9,7 @@ rescue LoadError
 end
 require 'forgetful-web'
 
-
-Vegas::Runner.new(ForgetfulApp, 'forgetful-web', :before_run => lambda {|v| FILENAMES.push(*v.args) })
+Vegas::Runner.new(ForgetfulApp, 'forgetful-web', :skip_launch => true,
+                                                 :foreground => true,
+                                                 :before_run => lambda {|v| FILENAMES.push(*v.args) })
 
