@@ -1,7 +1,7 @@
 
 function pluralize(count, singular, plural) {
   plural = plural || singular + 's';
-  return count == 1 ? singular : plural;
+  return count === 1 ? singular : plural;
 }
 
 //-------------------------------------------------
