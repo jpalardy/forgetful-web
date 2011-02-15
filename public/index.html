@@ -20,13 +20,11 @@
       <h2>${filename}</h2>
       <h3>${questions.length} ${pluralize(questions.length, "question")}</h3>
 
-      <div class="questions">
-        {{each questions}}
-          {{tmpl($value) "#questionTemplate"}}
-        {{/each}}
+      {{each questions}}
+        {{tmpl($value) "#questionTemplate"}}
+      {{/each}}
 
-        <button class="save">save</button>
-      </div>
+      <button class="save">save</button>
     </div>
   </script>
 
