@@ -3,7 +3,10 @@
 require 'rubygems'
 require 'sinatra/base'
 require 'json'
+
 require 'forgetful'
+require "forgetful/extensions/csv/reminder_file"
+require "forgetful/questionaire"
 
 FILENAMES = []
 
@@ -17,21 +20,17 @@ class ForgetfulApp < Sinatra::Base
     filenames = Array(filenames)
 
     data = filenames.map do |filename|
-      questions = Reminder.read_csv(filename).
-                           map.with_index { |reminder, i| [reminder, i] }.
-                           select { |reminder, i| reminder.due_on <= Date.today }.
-                           map do |reminder,i|
-                             { id:       i,
-                               question: reminder.question,
-                               answer:   reminder.answer }
-                           end.
-                           sort_by { rand }
-
+      questions = questionaire_from(filename).questions.sort_by { rand }
       {filename: filename, questions: questions}
     end
     data = data.select { |quiz| quiz[:questions].any? }
 
     JSON.generate(data)
+  end
+
+  def questionaire_from(filename)
+    csv_file = ReminderFile.new(filename)
+    Questionaire.new(csv_file)
   end
 
   get "/" do
@@ -40,15 +39,8 @@ class ForgetfulApp < Sinatra::Base
 
   post "/quizzes" do
     filename  = params[:filename]
-    results   = JSON.parse(params[:results])
-    reminders = Reminder.read_csv(filename)
-
-    results.each do |id,q|
-      id = id.to_i
-      reminders[id] = reminders[id].next(q)
-    end
-
-    Reminder.write_csv(filename, reminders.sort)
+    results   = JSON.parse(params[:results]).map { |id,q| [id.to_i, q.to_i] }
+    questionaire_from(filename).grade(results)
 
     filenames2json(filename)
   end
