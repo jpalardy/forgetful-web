@@ -1,19 +1,19 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    forgetful (0.3.3)
+    forgetful (0.5.0)
     git (1.2.5)
     jeweler (1.5.2)
       bundler (~> 1.0.0)
       git (>= 1.2.5)
       rake
     json (1.5.1)
-    rack (1.2.1)
+    rack (1.2.2)
     rake (0.8.7)
-    sinatra (1.1.2)
+    sinatra (1.2.6)
       rack (~> 1.1)
-      tilt (~> 1.2)
-    tilt (1.2.2)
+      tilt (>= 1.2.2, < 2.0)
+    tilt (1.3)
     vegas (0.1.8)
       rack (>= 1.0.0)
 
@@ -22,7 +22,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.0.0)
-  forgetful
+  forgetful (>= 0.5)
   jeweler (~> 1.5.2)
   json
   sinatra
